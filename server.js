@@ -9,7 +9,13 @@ var app = express();
 app.set('view engine', 'ejs');
 
 app.get('/' , (req, res) => {
-  res.render('pages/index');
+  let titles = [
+    data.title
+  ]
+  res.render('pages/index', {
+    titles: titles
+  });
+  
 });
 
 app.get('/about' , (req, res) => {

@@ -12,6 +12,20 @@
         <div class="jumbotron">
             <h1>This is great</h1>
             <p>Welcome to templating using EJS</p>
+            <ul>
+            
+            
+              
+                  <% titles.forEach(function(title) { %>
+                    
+                        <% for(var i = 0; i< title.length; i++) { %>
+                            <li><%= title[i] %></li>
+                        <% } %>
+                    
+                  <% }); %>
+              
+            
+            </ul>
         </div>
     </main>
 
