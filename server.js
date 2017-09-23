@@ -41,7 +41,9 @@ request(url, (err,resp,body) => {
       const x = {
         title: $(elem).find('.card-headline a').text().replace(/(\r\n|\n|\r)/gm,"").trim(),
         summary: $(elem).find('.card-lead p').text(),
-        image: ($(elem).find('.card-image img').attr('data-srcset') || "").split('?resize')[0]
+        image: ($(elem).find('.card-image img').attr('data-srcset') || "").split('?resize')[0],
+        source: 'http://www.mysuncoast.com/news/' + ($(elem).find('.card-headline a').attr('href'))
+       
       }
 
       data.push(x)      

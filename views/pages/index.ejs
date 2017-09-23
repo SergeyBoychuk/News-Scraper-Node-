@@ -8,17 +8,19 @@
 		<% include ../partials/header %>
 	</header>
 
-		<div>
-			<h1>This is great</h1>
-			<p>Welcome to templating using EJS</p>
-			
+		<div class="text-center">
+			<div class="site-headline">
+				<h1>See Local news clearer</h1>
+				<p>Readability is key :)</p>
+			</div>
 				<ul class=" list-unstyled content-wrapper">
 					<% data.forEach(function(title, index) { %>
 					
 							<div class="news-box">
 								<li class="headline"><%= title.title %></li>
-								<li><%= title.summary %></li>
-								<img class="img-responsive" src="<%= title.image %>">
+								<li class="news-summary"><%= title.summary %></li>
+								<img class="news-image img-responsive" src="<%= title.image %>">
+								<a href="<%= title.source %>" class="btn btn-primary">See Full article</a>
 							</div>
 						
 					<% }); %> 
