@@ -32,30 +32,25 @@ console.log('8080 is the magic port');
 
 let url = 'http://www.mysuncoast.com/news/';
 
-let data = {
-  title: [],
-  summary: [],
-  images: []
-}
+let data = [];
 
 
 
 request(url, (err,resp,body) => {
   let $ = cheerio.load(body)
 
-  $('.panel').each((i, elem) => {
+  $('.card-panel.panel').each((i, elem) => {
     try {
-      data.title[i] = $('.card-headline h3 a').get(i).children[0].data.replace(/(\r\n|\n|\r)/gm,"").trim();
-      data.summary[i] = $('.card-lead p').get(i).children[0].data;
-      data.images[i] = $('.panel-body .image a').get(i).children[0].next.attribs['data-srcset'];
-      console.log($('.panel-body').find($('.image a'))[0].children[0].next.attribs['data-srcset']);
-      let panelBody = $('.panel-body');
-      let imagesIn = $('.image a')[0].children[0].next.attribs['data-srcset'];
-      console.log(panelBody.find('.img')[0][1])
-      
+      const x = {
+        title: $(elem).find('.card-headline a').text().replace(/(\r\n|\n|\r)/gm,"").trim(),
+        summary: $(elem).find('.card-lead p').text(),
+        image: ($(elem).find('.card-image img').attr('data-srcset') || "").split('?resize')[0]
+      }
+
+      data.push(x)      
       
     } catch(e) {
-
+      console.log(e)
     }
   })
   // console.log(data.title);
