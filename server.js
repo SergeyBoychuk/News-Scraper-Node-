@@ -9,14 +9,10 @@ var app = express();
 app.set('view engine', 'ejs');
 
 app.get('/' , (req, res) => {
-  let dataDisplayed = [
-    data.title,
-    data.summary,
-    data.images
-  ]
+  
 
   res.render('pages/index', {
-    dataDisplayed
+    data
   });
 
 });
@@ -33,6 +29,7 @@ console.log('8080 is the magic port');
 let url = 'http://www.mysuncoast.com/news/';
 
 let data = [];
+console.log(data);
 
 
 

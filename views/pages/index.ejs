@@ -13,14 +13,14 @@
 			<p>Welcome to templating using EJS</p>
 			
 				<ul class=" list-unstyled content-wrapper">
-					<% dataDisplayed.forEach(function(title, index) { %>
-						<% for(var i = 0; i < title.length; i++) { %> 
+					<% data.forEach(function(title, index) { %>
+					
 							<div class="news-box">
-								<li class="headline"><%= dataDisplayed[0][i] %></li>
-								<li><%= dataDisplayed[1][i] %></li>
-								<img class="img-responsive" src="<%= dataDisplayed[2][i] %>">
+								<li class="headline"><%= title.title %></li>
+								<li><%= title.summary %></li>
+								<img class="img-responsive" src="<%= title.image %>">
 							</div>
-						<% } %> 
+						
 					<% }); %> 
 				</ul>
 			
